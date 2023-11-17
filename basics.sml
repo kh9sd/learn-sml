@@ -5,4 +5,3 @@
 val five = 3 + 2;
 
 fun area(r) = 3.14 * r * r;
-(* comments *)
