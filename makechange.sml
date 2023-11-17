@@ -5,5 +5,15 @@ fun allChange(coins, coinvals, 0) = [coins]
     else allChange(c::coins, c::coinvals, amount-c) @
             allChange(coins, coinvals, amount);
 
-allChange([], [5,2], 16);
-allChange([], [25,10,2,1], 43);
+
+fun allChange2(coins, coinvals, 0, result) = coins::result
+| allChange2(coins, [], amount, result) = result
+| allChange2(coins, c::coinvals, amount, result) =
+    if amount < 0 then result
+    else allChange2(coins, coinvals, amount, 
+		allChange2(c::coins, c::coinvals, amount-c, result));
+
+
+allChange2([], [5,2], 16, []);
+allChange2([], [25,10,2,1], 43, []);
+
